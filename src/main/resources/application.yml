@@ -1,0 +1,19 @@
+spring:
+  cache:
+    cache-names:
+      - rate-limit-buckets
+    caffeine:
+      spec: maximumSize=100000,expireAfterAccess=3600s
+
+bucket4j:
+  enabled: true
+  filters:
+    - cache-name: rate-limit-buckets
+      url: /api/josephus
+      strategy: first
+      rate-limits:
+        - expression: "getHeader('X-Client-Id')"
+          bandwidths:
+            - capacity: 5
+              time: 1
+              unit: seconds
