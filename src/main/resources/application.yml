@@ -9,7 +9,7 @@ bucket4j:
   enabled: true
   filters:
     - cache-name: rate-limit-buckets
-      url: /api/josephus
+      url: /api/random-number
       strategy: first
       rate-limits:
         - expression: "getHeader('X-Client-Id')"
