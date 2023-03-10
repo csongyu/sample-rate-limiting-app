@@ -13,7 +13,14 @@ bucket4j:
       strategy: first
       rate-limits:
         - expression: "getHeader('X-Client-Id')"
+          execute-condition: "getHeader('X-Client-Id').startsWith('S0-')"
           bandwidths:
-            - capacity: 5
+            - capacity: 50
               time: 1
               unit: seconds
+        - expression: "getHeader('X-Client-Id')"
+          execute-condition: "getHeader('X-Client-Id').startsWith('S1-')"
+          bandwidths:
+            - capacity: 3000
+              time: 1
+              unit: minutes
