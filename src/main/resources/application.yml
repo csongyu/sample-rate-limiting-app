@@ -15,12 +15,12 @@ bucket4j:
         - expression: "getHeader('X-Client-Id')"
           execute-condition: "getHeader('X-Client-Id').startsWith('S0-')"
           bandwidths:
-            - capacity: 50
+            - capacity: 13
               time: 1
               unit: seconds
         - expression: "getHeader('X-Client-Id')"
           execute-condition: "getHeader('X-Client-Id').startsWith('S1-')"
           bandwidths:
-            - capacity: 3000
+            - capacity: 780
               time: 1
               unit: minutes
