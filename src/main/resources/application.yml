@@ -24,3 +24,4 @@ bucket4j:
             - capacity: 780
               time: 1
               unit: minutes
+              refill-speed: greedy
